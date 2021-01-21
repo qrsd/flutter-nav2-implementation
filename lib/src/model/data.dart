@@ -11,13 +11,13 @@ class AppData {
         isliked: false,
         image: 'assets/shooe_tilt_1.png',
         category: "Trending Now"),
-    // Product(
-    //     id:2,
-    //     name: 'Nike Air Max 97',
-    //     price: 220.00,
-    //     isliked: false,
-    //     image: 'assets/shoe_tilt_2.png',
-    //     category: "Trending Now"),
+    Product(
+        id: 2,
+        name: 'Nike Air Max 97',
+        price: 220.00,
+        isliked: false,
+        image: 'assets/shoe_tilt_2.png',
+        category: "Trending Now"),
   ];
   static List<Product> cartList = [
     // Product(
@@ -65,7 +65,7 @@ class AppData {
         name: "Sneakers",
         image: 'assets/shoe_thumb_2.png',
         isSelected: true),
-    Category(id: 2, name: "Jacket", image: 'assets/jacket.png'),
+    // Category(id: 2, name: "Jacket", image: 'assets/jacket.png'),
     // Category(id: 3, name: "Watch", image: 'assets/watch.png'),
     // Category(id: 4, name: "Watch", image: 'assets/watch.png'),
   ];

@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_app/src/model/data.dart';
+import 'package:flutter_ecommerce_app/src/model/product.dart';
 import 'package:flutter_ecommerce_app/src/themes/light_color.dart';
 import 'package:flutter_ecommerce_app/src/themes/theme.dart';
 import 'package:flutter_ecommerce_app/src/widgets/product_card.dart';
@@ -8,7 +9,9 @@ import 'package:flutter_ecommerce_app/src/widgets/product_icon.dart';
 import 'package:flutter_ecommerce_app/src/widgets/extentions.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  final ValueChanged<Product> onTapped;
+
+  MyHomePage({Key key, this.title, this.onTapped}) : super(key: key);
 
   final String title;
 
@@ -74,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
             .map(
               (product) => ProductCard(
                 product: product,
+                onTapped: widget.onTapped,
                 onSelected: (model) {
                   setState(() {
                     AppData.productList.forEach((item) {

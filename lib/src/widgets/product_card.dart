@@ -8,19 +8,9 @@ import 'package:flutter_ecommerce_app/src/widgets/extentions.dart';
 class ProductCard extends StatelessWidget {
   final Product product;
   final ValueChanged<Product> onSelected;
-  ProductCard({Key key, this.product, this.onSelected}) : super(key: key);
-
-//   @override
-//   _ProductCardState createState() => _ProductCardState();
-// }
-
-// class _ProductCardState extends State<ProductCard> {
-//   Product product;
-//   @override
-//   void initState() {
-//     product = widget.product;
-//     super.initState();
-//   }
+  final ValueChanged<Product> onTapped;
+  ProductCard({Key key, this.product, this.onSelected, this.onTapped})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +76,7 @@ class ProductCard extends StatelessWidget {
           ],
         ),
       ).ripple(() {
-        Navigator.of(context).pushNamed('/detail');
+        onTapped(product);
         onSelected(product);
       }, borderRadius: BorderRadius.all(Radius.circular(20))),
     );

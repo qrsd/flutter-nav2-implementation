@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_app/src/model/product.dart';
 import 'package:flutter_ecommerce_app/src/pages/home_page.dart';
 import 'package:flutter_ecommerce_app/src/pages/shopping_cart_page.dart';
 import 'package:flutter_ecommerce_app/src/themes/light_color.dart';
@@ -8,7 +9,8 @@ import 'package:flutter_ecommerce_app/src/widgets/title_text.dart';
 import 'package:flutter_ecommerce_app/src/widgets/extentions.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({Key key, this.title}) : super(key: key);
+  final ValueChanged<Product> onTapped;
+  MainPage({Key key, this.title, this.onTapped}) : super(key: key);
 
   final String title;
 
@@ -141,7 +143,9 @@ class _MainPageState extends State<MainPage> {
                         switchInCurve: Curves.easeInToLinear,
                         switchOutCurve: Curves.easeOutBack,
                         child: isHomePageSelected
-                            ? MyHomePage()
+                            ? MyHomePage(
+                                onTapped: widget.onTapped,
+                              )
                             : Align(
                                 alignment: Alignment.topCenter,
                                 child: ShoppingCartPage(),

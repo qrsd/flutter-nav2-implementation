@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_app/src/model/data.dart';
+import 'package:flutter_ecommerce_app/src/model/product.dart';
 import 'package:flutter_ecommerce_app/src/themes/light_color.dart';
 import 'package:flutter_ecommerce_app/src/themes/theme.dart';
 import 'package:flutter_ecommerce_app/src/widgets/title_text.dart';
 import 'package:flutter_ecommerce_app/src/widgets/extentions.dart';
 
 class ProductDetailPage extends StatefulWidget {
-  ProductDetailPage({Key key}) : super(key: key);
+  final Product product;
+  ProductDetailPage({Key key, this.product}) : super(key: key);
 
   @override
   _ProductDetailPageState createState() => _ProductDetailPageState();
@@ -117,7 +119,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
             fontSize: 160,
             color: LightColor.lightGrey,
           ),
-          Image.asset('assets/show_1.png')
+          Image.asset('assets/show_${widget.product.id}.png')
         ],
       ),
     );
@@ -200,7 +202,10 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      TitleText(text: "NIKE AIR MAX 200", fontSize: 25),
+                      TitleText(
+                          text: widget.product.name.toUpperCase(),
+                          fontSize: 25),
+                      // TitleText(text: "NIKE AIR MAX 200", fontSize: 25),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
@@ -213,7 +218,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                                 color: LightColor.red,
                               ),
                               TitleText(
-                                text: "240",
+                                text: widget.product.price.toString(),
                                 fontSize: 25,
                               ),
                             ],
@@ -352,11 +357,11 @@ class _ProductDetailPageState extends State<ProductDetailPage>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         TitleText(
-          text: "Available Size",
+          text: "Description",
           fontSize: 14,
         ),
         SizedBox(height: 20),
-        Text(AppData.description),
+        Text(widget.product.id == 1 ? AppData.description : 'N/A'),
       ],
     );
   }
