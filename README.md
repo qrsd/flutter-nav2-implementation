@@ -1,4 +1,4 @@
-## Nav 2.0 testing
+## Flutter Navigation 2.0 implementation
 Deployed at [https://qrsd.github.io/#/](https://qrsd.github.io/#/)
 
 
